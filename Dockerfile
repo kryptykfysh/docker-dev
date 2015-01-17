@@ -2,6 +2,7 @@
 
 # Select Ubuntu as the base image
 FROM ubuntu:latest
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install build tools
 RUN apt-get update && apt-get install -y \
