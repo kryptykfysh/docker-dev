@@ -5,7 +5,8 @@ FROM ubuntu:latest
 
 # Install build tools
 RUN apt-get update && apt-get install -y \
-    build-essential
+    build-essential \
+    git
 
 # Startup commands
 ENTRYPOINT /bin/bash
