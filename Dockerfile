@@ -2,6 +2,7 @@
 
 # Select Ubuntu as the base image
 FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install build tools
