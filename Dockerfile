@@ -14,7 +14,13 @@ RUN apt-get update && apt-get install -y \
 RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+RUN source ~/.bashrc
 RUN rbenv install 2.2.0
+RUN rbenv rehash
+
+# Install default gems
+RUN gem update --system
+RUN gem install pry pry-doc
 
 # install ruby-build
 RUN git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
