@@ -49,13 +49,19 @@ RUN apt-get install ncurses-dev tmux && \
   echo '[[ -z "$TMUX" ]] && exec tmux' >> ~/.bashrc
 
 # Install pyenv
-RUN git clone https://github.com/yyuu/pyenv.git ~/.pyenv && \
+RUN apt-get install \
+  bzip2-devel \
+  libsqlite3-dev && \
+  git clone https://github.com/yyuu/pyenv.git ~/.pyenv && \
   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc && \
   echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc && \
   echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
   . ~/.bashrc && \
   pyenv install 2.7.8 && \
   pyenv rehash
+
+# Install Nodenv
+
 
 # Startup commands
 ENTRYPOINT /bin/bash
