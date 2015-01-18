@@ -58,7 +58,8 @@ RUN apt-get install \
   echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
   . ~/.bashrc && \
   pyenv install 2.7.8 && \
-  pyenv rehash
+  pyenv rehash && \
+  pyenv global 2.7.8
 
 # Install Nodenv
 RUN git clone https://github.com/OiNutter/nodenv.git ~/.nodenv && \
@@ -68,7 +69,9 @@ RUN git clone https://github.com/OiNutter/nodenv.git ~/.nodenv && \
   git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build && \
   git clone https://github.com/OiNutter/nodenv-vars.git ~/.nodenv/plugins/nodenv-vars && \
   . ~/.bashrc && \
-  nodenv install 0.11.13
+  nodenv install 0.11.13 && \
+  nodenv rehash && \
+  nodenv global 0.11.13
 
 # Startup commands
 ENTRYPOINT /bin/bash
