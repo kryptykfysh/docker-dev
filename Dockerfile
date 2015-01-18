@@ -30,7 +30,7 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
 
 # Install ruby
-  rbenv install 2.2.0 && \
+RUN rbenv install 2.2.0 && \
   rbenv rehash
   rbenv global 2.2.0
 
