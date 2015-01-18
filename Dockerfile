@@ -3,7 +3,6 @@
 # Select Ubuntu as the base image
 FROM ubuntu:latest
 ENV DEBIAN_FRONTEND noninteractive
-# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install build tools
 RUN apt-get update && apt-get install -y \
@@ -28,8 +27,8 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && \
-  git clone https://github.com/sstephenson/rbenv-vars.git && \
-  . ~/.bashrc && \
+  git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars && \
+  # . ~/.bashrc && \
   rbenv install 2.2.0 && \
   rbenv rehash
 
