@@ -50,7 +50,7 @@ RUN apt-get install ncurses-dev tmux && \
 
 # Install pyenv
 RUN apt-get install \
-  bzip2-devel \
+  bzip2-dev \
   libsqlite3-dev && \
   git clone https://github.com/yyuu/pyenv.git ~/.pyenv && \
   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc && \
