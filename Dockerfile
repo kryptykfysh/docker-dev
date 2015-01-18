@@ -27,10 +27,12 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && \
-  git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars && \
-  # . ~/.bashrc && \
+  git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
+
+# Install ruby
   rbenv install 2.2.0 && \
   rbenv rehash
+  rbenv global 2.2.0
 
 # Startup commands
 ENTRYPOINT /bin/bash
