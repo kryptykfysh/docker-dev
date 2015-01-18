@@ -14,16 +14,13 @@ RUN apt-get update && apt-get install -y \
     ruby-dev
 
 # Install and configure rbenv
-RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-RUN echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-RUN . ~/.bashrc
-RUN rbenv install 2.2.0
-RUN rbenv rehash
-
-# Install default gems
-RUN gem update --system
-RUN gem install pry pry-doc
+RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
+  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
+  echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
+  git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && \
+  . ~/.bashrc && \
+  rbenv install 2.2.0 && \
+  rbenv rehash
 
 # install ruby-build
 RUN git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
