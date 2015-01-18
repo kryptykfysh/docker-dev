@@ -36,7 +36,7 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   gem install pry pry-doc activesupport
 
 # Install and configure Vim
-RUN apt-get install -y vim && \
+RUN apt-get install -y vim-gtk && \
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc /root/.vimrc
 ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.bundles /root/.vimrc.bundles
