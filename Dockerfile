@@ -47,5 +47,6 @@ RUN vim +PluginInstall +qall
 RUN apt-get install ncurses-dev tmux
 
 # Startup commands
-ENTRYPOINT /bin/bash
+ENTRYPOINT /bin/bash && \
+  tmux
 
