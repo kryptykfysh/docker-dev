@@ -44,7 +44,7 @@ ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.local
 RUN vim +PluginInstall +qall
 
 # Install tmux
-RUN apt-get install tmux
+RUN apt-get install ncurses tmux
 
 # Startup commands
 ENTRYPOINT /bin/bash
