@@ -33,7 +33,14 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   rbenv rehash && \
   rbenv global 2.2.0 && \
   gem update --system && \
-  gem install pry pry-doc
+  gem install pry pry-doc activesupport
+
+# Install and configure Vim
+RUN apt-get install -y vim \
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
+ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc ~/
+ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.bundles ~/
+RUN vim +PluginInstall +qall
 
 # Startup commands
 ENTRYPOINT /bin/bash
