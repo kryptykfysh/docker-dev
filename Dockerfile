@@ -27,12 +27,13 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc && \
   echo 'eval "$(rbenv init -)"' >> ~/.bashrc && \
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && \
-  git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
-
-# Install ruby
-RUN rbenv install 2.2.0 && \
-  rbenv rehash
-  rbenv global 2.2.0
+  git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars && \
+  . ~/.bashrc && \
+  rbenv install 2.2.0 && \
+  rbenv rehash && \
+  rbenv global 2.2.0 && \
+  gem update --system && \
+  gem install pry pry-doc
 
 # Startup commands
 ENTRYPOINT /bin/bash
