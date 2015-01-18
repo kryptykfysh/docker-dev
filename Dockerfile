@@ -66,7 +66,7 @@ RUN git clone https://github.com/OiNutter/nodenv.git ~/.nodenv && \
   echo 'eval "$(nodenv init -)"' >> ~/.bashrc && \
   mkdir ~/.nodenv/plugins && \
   git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build && \
-  git clone https://github.com/OiNutter/nodenv-vars.git ~.nodenv/plugins/nodenv-vars && \
+  git clone https://github.com/OiNutter/nodenv-vars.git ~/.nodenv/plugins/nodenv-vars && \
   . ~/.bashrc && \
   nodenv install 0.11.13
 
