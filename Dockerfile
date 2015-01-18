@@ -61,7 +61,14 @@ RUN apt-get install \
   pyenv rehash
 
 # Install Nodenv
-
+RUN git clone https://github.com/OiNutter/nodenv.git ~/.nodenv && \
+  echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc && \
+  echo 'eval "$(nodenv init -)"' >> ~/.bashrc && \
+  mkdir ~/.nodenv/plugins && \
+  git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build && \
+  git clone https://github.com/OiNutter/nodenv-vars.git ~.nodenv/plugins/nodenv-vars && \
+  . ~/.bashrc && \
+  nodenv install 0.11.13
 
 # Startup commands
 ENTRYPOINT /bin/bash
