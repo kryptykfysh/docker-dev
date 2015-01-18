@@ -11,6 +11,16 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
+    autoconf \
+    bison \
+    libssl-dev \
+    libyaml-dev \
+    libreadline6-dev \
+    zlib1g-dev \
+    libncurses5-dev \
+    libffi-dev \
+    libgdbm3 \
+    libgdbm-dev \
     ruby-dev
 
 # Install and configure rbenv
