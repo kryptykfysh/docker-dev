@@ -40,6 +40,7 @@ RUN apt-get install -y vim && \
   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc ~/
 ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.bundles ~/
+ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.local ~/
 RUN vim +PluginInstall +qall
 
 # Startup commands
