@@ -43,5 +43,8 @@ ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.bundl
 ADD https://raw.githubusercontent.com/kryptykfysh/vim-config/master/.vimrc.local /root/.vimrc.local
 RUN vim +PluginInstall +qall
 
+# Install tmux
+RUN apt-get install tmux
+
 # Startup commands
 ENTRYPOINT /bin/bash
