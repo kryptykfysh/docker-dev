@@ -39,9 +39,9 @@ RUN git clone https://github.com/sstephenson/rbenv.git ~/.rbenv && \
   git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build && \
   git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars && \
   . ~/.bashrc && \
-  rbenv install 2.3.3 && \
+  rbenv install 2.4.1 && \
   rbenv rehash && \
-  rbenv global 2.3.3 && \
+  rbenv global 2.4.1 && \
   gem update --system && \
   gem install bundler rails pry pry-doc rubocop reek flay
 
