@@ -7,6 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install build tools and client packages
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     build-essential \
+    dkms \
     git \
     curl \
     wget \
@@ -80,6 +81,16 @@ RUN git clone https://github.com/OiNutter/nodenv.git ~/.nodenv && \
   npm install -g npm && \
   npm install -g bower && \
   npm install -g ember
+  
+# Install Go
+ADD https://dl.google.com/go/go1.9.2.linux-amd64.tar.gz ~/go.tar.gz
+RUN tar -C /usr/local -xzf ~/go.tar.gz && \
+  echo 'export PATH="$PATH:/usr/local/go/bin"' >> ~/.bashrc && \
+  mkdir -p ~/code/go/bin && \
+  echo 'export PATH="$PATH:$HOME/code/go/bin"' >> ~/.bashrc && \
+  echo 'export GOPATH=$HOME/code/go' >> ~/.bashrc && \
+  . ~/.bashrc && \
+  vim +GoInstallBinaries
 
 # Startup commands
 ENTRYPOINT /bin/bash
