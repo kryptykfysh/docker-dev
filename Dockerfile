@@ -19,7 +19,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     zlib1g-dev \
     libncurses5-dev \
     libffi-dev \
-    libgdbm3 \
+    libgdbm5 \
     libgdbm-dev \
     ncurses-dev \
     tmux \
